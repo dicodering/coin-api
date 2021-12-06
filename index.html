@@ -5,26 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="index.js" defer></script>
-    <style>
-      * {
-        list-style: none;
-      }
-    </style>
-    <title>Document</title>
+    <link rel="stylesheet" href="main.css" type="text/css" />
+    <title>6조: 코인</title>
   </head>
   <body>
-    <h1>업비트 코인 정보</h1>
+    <div class="container">
+      <h1>업비트 코인 정보</h1>
 
-    <form id="searchForm">
-      <fieldset>
-        <input id="query" type="search" placeholder="코인 이름" />
+      <form id="searchForm">
+        <fieldset>
+          <input id="query" type="search" placeholder="코인 이름" />
 
-        <button id="sort-price">가격 순으로 정렬</button>
-        <button id="sort-rate">전일대비 정렬</button>
-        <button id="sort-accTrade">거래대금 정렬</button>
-      </fieldset>
-    </form>
+          <div class="btn-box">
+            <button id="sort-price">가격 순으로 정렬</button>
+            <button id="sort-rate">전일대비 정렬</button>
+            <button id="sort-accTrade">거래대금 정렬</button>
+          </div>
+        </fieldset>
+      </form>
 
-    <ul id="coin_list"></ul>
+      <ul id="coin_list"></ul>
+    </div>
   </body>
 </html>
