@@ -42,6 +42,7 @@ function printCoin(data, names) {
       signed_change_rate: data[i].signed_change_rate,
     };
   });
+
   assigns.forEach((e) => {
     const coinDetails = document.createElement("li");
     const korean_name = document.createElement("div");
@@ -54,12 +55,11 @@ function printCoin(data, names) {
     korean_name.innerText = e.korean_name;
     english_name.innerText = e.english_name;
     market_name.innerText = e.market;
-    trade_price.innerText = `현재가: ${e.trade_price}`;
+    trade_price.innerText = `현재가: ${e.trade_price.toLocaleString("ko-KR")}`;
     signed_change_rate.innerText = `전일대비: ${(e.signed_change_rate * 100).toFixed(2) + "%"}`;
-    acc_trade_price.innerText = `거래대금: ${(e.acc_trade_price + "").slice(
-      -(e.acc_trade_price + "").length,
-      -10
-    )}백만`;
+    const price = e.acc_trade_price + "";
+    const price_num = price.slice(-(price + "").length, -10);
+    acc_trade_price.innerText = `거래대금: ${Number(price_num).toLocaleString("ko-KR")}백만`;
 
     coinDetails.appendChild(korean_name);
     coinDetails.appendChild(english_name);
