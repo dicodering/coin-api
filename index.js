@@ -33,6 +33,7 @@ function getData(url, names, callback) {
   xhr.open("GET", addr);
   xhr.send();
 }
+
 function assignData(data, names) {
   const assigns = names.map((e, i) => {
     return {
@@ -82,7 +83,6 @@ function printCoin(assigns) {
 
 document.querySelector("#query").addEventListener("keyup", (e) => {
   e.preventDefault();
-
   const value = e.target.value;
   const list = document.querySelectorAll(".coin-each");
 
@@ -94,7 +94,11 @@ document.querySelector("#query").addEventListener("keyup", (e) => {
   });
 });
 
-document.querySelector("#sort-price").addEventListener("click", (e) => {
+// document.querySelector("#sort-price").addEventListener("click", (e) => {
+//   e.preventDefault();
+//   coinList.innerHTML = "";
+// });
+
+document.querySelector("#searchForm").addEventListener("submit", (e) => {
   e.preventDefault();
-  coinList.innerHTML = "";
 });
