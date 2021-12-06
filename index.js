@@ -6,7 +6,7 @@ function loadMarket() {
 
 loadMarket();
 
-function loadTicker(data, names, callback = printCoin) {
+function loadTicker(data, names, callback = assignData) {
   const markets = data
     .map((e) => e.market)
     .filter((e) => e.substring(0, 3) === "KRW");
@@ -33,8 +33,7 @@ function getData(url, names, callback) {
   xhr.open("GET", addr);
   xhr.send();
 }
-
-function printCoin(data, names) {
+function assignData(data, names) {
   const assigns = names.map((e, i) => {
     return {
       ...e,
@@ -44,7 +43,10 @@ function printCoin(data, names) {
       signed_change_rate: data[i].signed_change_rate,
     };
   });
+  printCoin(assigns);
+}
 
+function printCoin(assigns) {
   assigns.forEach((e) => {
     const coinDetails = document.createElement("li");
     const korean_name = document.createElement("div");
@@ -90,4 +92,9 @@ document.querySelector("#query").addEventListener("keyup", (e) => {
       ? (e.style.display = "block")
       : (e.style.display = "none");
   });
+});
+
+document.querySelector("#sort-price").addEventListener("click", (e) => {
+  e.preventDefault();
+  coinList.innerHTML = "";
 });
