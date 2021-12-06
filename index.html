@@ -5,15 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="index.js" defer></script>
+    <style>
+      * {
+        list-style: none;
+      }
+    </style>
     <title>Document</title>
   </head>
   <body>
     <h1>업비트 코인 정보</h1>
 
-    <form action="">
+    <form id="searchForm">
       <fieldset>
         <input id="query" type="search" placeholder="코인 이름" />
-        <button type="submit">검색</button>
 
         <button id="sort-name">이름순으로 정렬</button>
         <button id="sort-asc">낮은 가격순으로 정렬</button>
