@@ -34,7 +34,7 @@ function getData(url, names, callback) {
   xhr.send();
 }
 
-function assignData(data, names) {
+function assignData(data, names, callback) {
   const assigns = names.map((e, i) => {
     return {
       ...e,
@@ -44,10 +44,60 @@ function assignData(data, names) {
       signed_change_rate: data[i].signed_change_rate,
     };
   });
+  sort(assigns);
+}
+function sort(data) {
+  const assigns = data;
+  console.log(assigns);
+  const sortPrice = document.querySelector("#sort-price");
+  const sortRate = document.querySelector("#sort-rate");
+  const sortTrade = document.querySelector("#sort-accTrade");
+  let handlePrice = false;
+  let handleRate = false;
+  let handleTrade = false;
+  sortPrice.addEventListener("click", () => {
+    if (!handlePrice) {
+      assigns.sort((a, b) => b.trade_price - a.trade_price);
+      printCoin(assigns);
+      handlePrice = true;
+    } else {
+      assigns.sort((a, b) => a.trade_price - b.trade_price);
+      printCoin(assigns);
+      handlePrice = false;
+    }
+  });
+  sortRate.addEventListener("click", () => {
+    if (!handleRate) {
+      assigns.sort((a, b) => b.signed_change_rate - a.signed_change_rate);
+      printCoin(assigns);
+      handleRate = true;
+    } else {
+      assigns.sort((a, b) => a.signed_change_rate - b.signed_change_rate);
+      printCoin(assigns);
+      handleRate = false;
+    }
+  });
+  sortTrade.addEventListener("click", () => {
+    if (!handleTrade) {
+      assigns.sort(
+        (a, b) => Math.round(b.acc_trade_price) - Math.round(a.acc_trade_price)
+      );
+      printCoin(assigns);
+      handleTrade = true;
+    } else {
+      assigns.sort(
+        (a, b) => Math.round(a.acc_trade_price) - Math.round(b.acc_trade_price)
+      );
+      printCoin(assigns);
+      handleTrade = false;
+    }
+  });
+
   printCoin(assigns);
 }
 
 function printCoin(assigns) {
+  coinList.innerHTML = "";
   assigns.forEach((e) => {
     const coinDetails = document.createElement("li");
     const korean_name = document.createElement("div");
@@ -65,8 +115,8 @@ function printCoin(assigns) {
     signed_change_rate.innerText = `전일대비: ${
       (e.signed_change_rate * 100).toFixed(2) + "%"
     }`;
-    const price = e.acc_trade_price + "";
-    const price_num = price.slice(-(price + "").length, -10);
+    const price = e.acc_trade_price.toFixed(0);
+    const price_num = price.slice(-(price + "").length, -6);
     acc_trade_price.innerText = `거래대금: ${Number(price_num).toLocaleString(
       "ko-KR"
     )}백만`;
@@ -93,11 +143,6 @@ document.querySelector("#query").addEventListener("keyup", (e) => {
       : (e.style.display = "none");
   });
 });
-
-// document.querySelector("#sort-price").addEventListener("click", (e) => {
-//   e.preventDefault();
-//   coinList.innerHTML = "";
-// });
 
 document.querySelector("#searchForm").addEventListener("submit", (e) => {
   e.preventDefault();
