@@ -153,22 +153,22 @@ inputs.addEventListener("keyup", (e) => {
 });
 
 // 2초마다 코인 목록 갱신
-let isStop = false;
+// let isStop = false;
 
-function stop() {
-  if (!isStop) {
-    loadMarket();
-  } else {
-    clearInterval(interval);
-  }
-}
+// function stop() {
+//   if (!isStop) {
+//     loadMarket();
+//   } else {
+//     clearInterval(interval);
+//   }
+// }
 
-let interval = setInterval(stop, 2000);
-inputs.oninput = function handleInput({ target }) {
-  if (target.value.length > 0) {
-    isStop = true;
-  } else {
-    isStop = false;
-    interval = setInterval(stop, 2000);
-  }
-};
+// let interval = setInterval(stop, 2000);
+// inputs.oninput = function handleInput({ target }) {
+//   if (target.value.length > 0) {
+//     isStop = true;
+//   } else {
+//     isStop = false;
+//     interval = setInterval(stop, 2000);
+//   }
+// };
