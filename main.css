@@ -60,17 +60,18 @@ input:focus::-webkit-input-placeholder {
 }
 /* 버튼 공통 */
 button {
-  border: 1.5px solid rgb(27, 35, 43);
-  background-color: transparent;
-  color: #fff;
-  font-weight: 200;
+    border: 1.5px solid rgb(27, 35, 43);
+    background-color:transparent;
+    color: #fff;
+    font-weight: 300;
 }
 button:hover {
   border: 1.5px solid rgb(23, 84, 189);
   color: rgb(23, 84, 189);
 }
 button:focus {
-  border: 1.5px solid rgb(23, 84, 189);
+    border: 1.5px solid rgb(23, 84, 189);
+    color: rgb(23, 84, 189);
 }
 
 /* 정렬 버튼 */
@@ -127,7 +128,7 @@ button:focus {
   width: 200px;
 }
 #coin_list li div:nth-child(2) {
-  width: 150px;
+  width: 200px;
   padding-left: 25px;
 }
 #coin_list li div:nth-child(3) {
@@ -139,15 +140,15 @@ button:focus {
 #coin_list li div:nth-child(4) {
   color: rgb(23, 84, 189);
   font-weight: 600;
-  width: 150px;
+  width: 170px;
   text-align: right;
 }
 #coin_list li div:nth-child(5) {
-  width: 100px;
+  width: 110px;
   text-align: right;
 }
 #coin_list li div:nth-child(6) {
-  width: 200px;
+  width: 120px;
   text-align: right;
   font-weight: 600;
   color: rgb(196, 196, 196);
@@ -180,17 +181,17 @@ button:focus {
   width: 200px;
 }
 .list-name div:nth-child(2) {
-  width: 150px;
+  width: 200px;
 }
 .list-name div:nth-child(3) {
   width: 100px;
 }
 .list-name div:nth-child(4) {
-  width: 150px;
+  width: 170px;
 }
 .list-name div:nth-child(5) {
-  width: 100px;
+  width: 110px;
 }
 .list-name div:nth-child(6) {
-  width: 200px;
+  width: 120px;
 }
