@@ -73,7 +73,7 @@ button:focus {
 #coin_list {
     /* margin: 10px 0 30px 0; */
     margin-bottom: 30px;
-    width: 1200px;
+    width: 900px;
     margin: auto;
 }
 #coin_list::after {
@@ -86,7 +86,7 @@ button:focus {
 #coin_list li {
     border-bottom: 1px solid rgb(41, 47, 58);
     padding: 15px 0;
-    width: 1200px;
+    width: 900px;
     margin: auto;
     float: left;
 }
@@ -99,27 +99,46 @@ button:focus {
 }
 #coin_list li div {
     float: left;
-    width: 200px;
+    /* width: 200px; */
+    box-sizing: border-box;
+    padding: 0 10px;
 }
-/* 코인 한글명 */
+
+/* 코인별 박스 */
 #coin_list li div:nth-child(1) {
     padding-left: 5px;
     box-sizing: border-box;
+    width: 200px;
+}
+#coin_list li div:nth-child(2) {
+    width: 150px;
+}
+#coin_list li div:nth-child(3) {
+    font-size: 14px;
+    width: 150px;
 }
 #coin_list li div:nth-child(4) {
     color: rgb(23, 84, 189);
     font-weight: 600;
-}
-
-#coin_list li div:nth-child(6) {
+    width: 100px;
     text-align: right;
+}
+#coin_list li div:nth-child(5) {
+    width: 100px;
+    text-align: right;
+}
+#coin_list li div:nth-child(6) {
+    width: 200px;
+    text-align: right;
+    font-weight: 600;
+    color: rgb(221, 221, 221);
 }
 
 /* 상단 코인리스트 카테고리 */
 .list-name {
     border-bottom: 1px solid rgb(41, 47, 58);
     border-top: 1px solid rgb(41, 47, 58);
-    width: 1200px;
+    width: 900px;
     margin: 0 auto;
 }
 .list-name::after {
@@ -137,4 +156,22 @@ button:focus {
     font-size: 14px;
     font-weight: 300;
     background-color: rgb(22, 32, 49);
+}
+.list-name div:nth-child(1) {
+    width: 200px;
+}
+.list-name div:nth-child(2) {
+    width: 150px;
+}
+.list-name div:nth-child(3) {
+    width: 150px;
+}
+.list-name div:nth-child(4) {
+    width: 100px;
+}
+.list-name div:nth-child(5) {
+    width: 100px;
+}
+.list-name div:nth-child(6) {
+    width: 200px;
 }
