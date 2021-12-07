@@ -1,11 +1,13 @@
 const coinList = document.querySelector("#coin_list");
 
+// 페이지 로드시 코인 데이터 호출
 function loadMarket() {
   getData("market/all?isDetails=false", null, loadTicker);
 }
 
 loadMarket();
 
+// 업비트 현재가 조회 API 데이터 요청
 function loadTicker(data, names, callback = assignData) {
   const markets = data
     .map((e) => e.market)
@@ -15,6 +17,7 @@ function loadTicker(data, names, callback = assignData) {
   getData(`ticker?markets=${markets}`, coinNames, callback);
 }
 
+// ajax 요청 함수
 function getData(url, names, callback) {
   const xhr = new XMLHttpRequest();
   const addr = `https://api.upbit.com/v1/${url}`;
@@ -34,6 +37,7 @@ function getData(url, names, callback) {
   xhr.send();
 }
 
+// 받아온 데이터를 필요한 형식으로 재조합
 function assignData(data, names, callback) {
   const assigns = names.map((e, i) => {
     return {
@@ -46,9 +50,10 @@ function assignData(data, names, callback) {
   });
   sort(assigns);
 }
+
+// 받아온 데이터를 정렬
 function sort(data) {
   const assigns = data;
-  console.log(assigns);
   const sortPrice = document.querySelector("#sort-price");
   const sortRate = document.querySelector("#sort-rate");
   const sortTrade = document.querySelector("#sort-accTrade");
@@ -96,6 +101,7 @@ function sort(data) {
   printCoin(assigns);
 }
 
+// html에 받아온 데이터를 삽입
 function printCoin(assigns) {
   coinList.innerHTML = "";
   assigns.forEach((e) => {
@@ -111,13 +117,13 @@ function printCoin(assigns) {
     korean_name.innerText = e.korean_name;
     english_name.innerText = e.english_name;
     market_name.innerText = e.market;
-    trade_price.innerText = `현재가: ${e.trade_price.toLocaleString("ko-KR")}`;
-    signed_change_rate.innerText = `전일대비: ${
+    trade_price.innerText = `${e.trade_price.toLocaleString("ko-KR")}`;
+    signed_change_rate.innerText = `${
       (e.signed_change_rate * 100).toFixed(2) + "%"
     }`;
     const price = e.acc_trade_price.toFixed(0);
     const price_num = price.slice(-(price + "").length, -6);
-    acc_trade_price.innerText = `거래대금: ${Number(price_num).toLocaleString(
+    acc_trade_price.innerText = `${Number(price_num).toLocaleString(
       "ko-KR"
     )}백만`;
 
@@ -131,7 +137,9 @@ function printCoin(assigns) {
   });
 }
 
-document.querySelector("#query").addEventListener("keyup", (e) => {
+// 검색기능
+const inputs = document.querySelector("#query");
+inputs.addEventListener("keyup", (e) => {
   e.preventDefault();
   const value = e.target.value;
   const list = document.querySelectorAll(".coin-each");
@@ -143,3 +151,24 @@ document.querySelector("#query").addEventListener("keyup", (e) => {
       : (e.style.display = "none");
   });
 });
+
+// 2초마다 코인 목록 갱신
+let isStop = false;
+
+function stop() {
+  if (!isStop) {
+    loadMarket();
+  } else {
+    clearInterval(interval);
+  }
+}
+
+let interval = setInterval(stop, 2000);
+inputs.oninput = function handleInput({ target }) {
+  if (target.value.length > 0) {
+    isStop = true;
+  } else {
+    isStop = false;
+    interval = setInterval(stop, 2000);
+  }
+};
