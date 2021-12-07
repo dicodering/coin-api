@@ -106,21 +106,24 @@ button:focus {
 
 /* 코인별 박스 */
 #coin_list li div:nth-child(1) {
-    padding-left: 5px;
+    padding-left: 10px;
     box-sizing: border-box;
     width: 200px;
 }
 #coin_list li div:nth-child(2) {
     width: 150px;
+    padding-left: 25px;
 }
 #coin_list li div:nth-child(3) {
     font-size: 14px;
-    width: 150px;
+    width: 100px;
+    padding-left: 20px;
+    color: rgb(196, 196, 196);
 }
 #coin_list li div:nth-child(4) {
     color: rgb(23, 84, 189);
     font-weight: 600;
-    width: 100px;
+    width: 150px;
     text-align: right;
 }
 #coin_list li div:nth-child(5) {
@@ -131,7 +134,7 @@ button:focus {
     width: 200px;
     text-align: right;
     font-weight: 600;
-    color: rgb(221, 221, 221);
+    color: rgb(196, 196, 196);
 }
 
 /* 상단 코인리스트 카테고리 */
@@ -164,10 +167,10 @@ button:focus {
     width: 150px;
 }
 .list-name div:nth-child(3) {
-    width: 150px;
+    width: 100px;
 }
 .list-name div:nth-child(4) {
-    width: 100px;
+    width: 150px;
 }
 .list-name div:nth-child(5) {
     width: 100px;
