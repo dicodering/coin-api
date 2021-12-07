@@ -143,7 +143,3 @@ document.querySelector("#query").addEventListener("keyup", (e) => {
       : (e.style.display = "none");
   });
 });
-
-document.querySelector("#searchForm").addEventListener("submit", (e) => {
-  e.preventDefault();
-});
