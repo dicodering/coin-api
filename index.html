@@ -12,14 +12,31 @@
     <div class="container">
       <h1>업비트 코인 정보</h1>
 
+      <!-- 검색창 -->
       <input id="query" type="search" placeholder="코인 이름" />
 
+      <!-- 버튼 -->
       <div class="btn-box">
         <button id="sort-price">가격 순으로 정렬</button>
         <button id="sort-rate">전일대비 정렬</button>
         <button id="sort-accTrade">거래대금 정렬</button>
       </div>
 
+      <!-- 코인 리스트 : 카테고리 -->
+      <div class="list-name">
+        <div class="category">
+          코인명 <span style="font-size: 12px; font-weight: bold">(한글)</span>
+        </div>
+        <div class="category">
+          코인명 <span style="font-size: 12px; font-weight: bold">(영문)</span>
+        </div>
+        <div class="category">시장정보</div>
+        <div class="category">현재가</div>
+        <div class="category">전일대비</div>
+        <div class="category">거래대금</div>
+      </div>
+
+      <!-- 코인 리스트 -->
       <ul id="coin_list"></ul>
     </div>
   </body>

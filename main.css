@@ -6,13 +6,10 @@ body {
   background-color: rgb(9, 17, 32);
   border-top: 8px solid rgb(27, 52, 108);
 }
-input::-webkit-search-decoration,
-input::-webkit-search-cancel-button,
-input::-webkit-search-results-button,
-input::-webkit-search-results-decoration {
-  display: none;
+ul {
+  margin: 0;
+  padding: 0;
 }
-
 li {
   list-style: none;
 }
@@ -24,6 +21,12 @@ input {
   outline: none;
   border: 0;
 }
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration {
+  display: none;
+}
 
 /* 폼 태그 */
 .container {
@@ -34,13 +37,6 @@ input {
   text-align: center;
   padding: 20px 0;
 }
-form {
-}
-fieldset {
-  margin: auto;
-  width: 565px;
-  text-align: center;
-}
 
 /* 검색창 */
 #query {
@@ -50,9 +46,10 @@ fieldset {
   outline: none;
   border-bottom: 1px solid #ccc;
   font-weight: 200;
-  margin-right: 7px;
   color: #fff;
   font-size: 16px;
+  margin: auto;
+  display: block;
 }
 input::placeholder {
   color: #fff;
@@ -78,8 +75,9 @@ button:focus {
 
 /* 정렬 버튼 */
 .btn-box {
-  margin-top: 10px;
+  margin: 10px 0 50px 0;
   /* text-align: left; */
+  text-align: center;
 }
 .btn-box button {
   padding: 10px 36px 10px 36px;
@@ -89,13 +87,26 @@ button:focus {
 
 /* 코인 리스트 */
 #coin_list {
-  margin: 30px 0;
+  /* margin: 10px 0 30px 0; */
+  margin-bottom: 30px;
+  width: 900px;
+  margin: auto;
+}
+#coin_list::after {
+  content: "";
+  clear: both;
+  display: block;
+  float: none;
 }
 
 #coin_list li {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid rgb(41, 47, 58);
   padding: 15px 0;
+  width: 900px;
+  margin: auto;
+  float: left;
 }
+
 #coin_list li::after {
   content: "";
   clear: both;
@@ -104,17 +115,82 @@ button:focus {
 }
 #coin_list li div {
   float: left;
-  width: 192px;
-}
-#coin_list li div:nth-child(1) {
-  padding-left: 5px;
+  /* width: 200px; */
   box-sizing: border-box;
+  padding: 0 10px;
+}
+
+/* 코인별 박스 */
+#coin_list li div:nth-child(1) {
+  padding-left: 10px;
+  box-sizing: border-box;
+  width: 200px;
+}
+#coin_list li div:nth-child(2) {
+  width: 150px;
+  padding-left: 25px;
+}
+#coin_list li div:nth-child(3) {
+  font-size: 14px;
+  width: 100px;
+  padding-left: 20px;
+  color: rgb(196, 196, 196);
 }
 #coin_list li div:nth-child(4) {
   color: rgb(23, 84, 189);
   font-weight: 600;
+  width: 150px;
+  text-align: right;
+}
+#coin_list li div:nth-child(5) {
+  width: 100px;
+  text-align: right;
+}
+#coin_list li div:nth-child(6) {
+  width: 200px;
+  text-align: right;
+  font-weight: 600;
+  color: rgb(196, 196, 196);
 }
 
-#coin_list li div:nth-child(6) {
-  text-align: right;
+/* 상단 코인리스트 카테고리 */
+.list-name {
+  border-bottom: 1px solid rgb(41, 47, 58);
+  border-top: 1px solid rgb(41, 47, 58);
+  width: 900px;
+  margin: 0 auto;
+}
+.list-name::after {
+  content: "";
+  clear: both;
+  display: block;
+  float: none;
+}
+.list-name .category {
+  float: left;
+  width: 200px;
+  /* border: 2px solid blue; */
+  text-align: center;
+  padding: 8px 0;
+  font-size: 14px;
+  font-weight: 300;
+  background-color: rgb(22, 32, 49);
+}
+.list-name div:nth-child(1) {
+  width: 200px;
+}
+.list-name div:nth-child(2) {
+  width: 150px;
+}
+.list-name div:nth-child(3) {
+  width: 100px;
+}
+.list-name div:nth-child(4) {
+  width: 150px;
+}
+.list-name div:nth-child(5) {
+  width: 100px;
+}
+.list-name div:nth-child(6) {
+  width: 200px;
 }
