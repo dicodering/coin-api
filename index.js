@@ -121,12 +121,18 @@ function printCoin(assigns) {
     signed_change_rate.innerText = `${
       (e.signed_change_rate * 100).toFixed(2) + "%"
     }`;
-    e.signed_change_rate === 0
-      ? signed_change_rate.classList.add("black")
-      : e.signed_change_rate > 0
-      ? signed_change_rate.classList.add("red")
-      : signed_change_rate.classList.add("blue");
-    console.log(signed_change_rate);
+
+    if (e.signed_change_rate === 0) {
+      signed_change_rate.classList.add("black");
+      trade_price.classList.add("black");
+    } else if (e.signed_change_rate > 0) {
+      signed_change_rate.classList.add("red");
+      trade_price.classList.add("red");
+    } else {
+      signed_change_rate.classList.add("blue");
+      trade_price.classList.add("blue");
+    }
+
     const price = e.acc_trade_price.toFixed(0);
     const price_num = price.slice(-(price + "").length, -6);
     acc_trade_price.innerText = `${Number(price_num).toLocaleString(
